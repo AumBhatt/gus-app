@@ -1,0 +1,27 @@
+.search-wrapper {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+
+    margin-top: 10px;
+
+    /* background: red; */
+}
+
+.search-textbox {
+    width: 90%;
+
+    border: 1px #c5c5c5;
+    border-radius: 0.5em;
+
+    padding: 1em;
+    /* padding-left: 10px; */
+
+    color: white;
+    background: #1b242f;
+}
+.search-textbox::placeholder {
+    color: #cdcdcd;
+}

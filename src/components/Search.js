@@ -1,10 +1,11 @@
 import React, { useState, UseEffect } from "react";
+import './Search.css'
 
 const Search = (props) => {
     const [searchData, setSearchData] = useState("Test Data from Child.");
     return (
         <div className="search-wrapper">
-            <input type="text" className="search-textbox" placeholder="Search GitHub Users" />
+            <input type="text" className="search-textbox" placeholder="Search GitHub users..." />
             <input type="button" className="search-btn" value="Search" onClick={() => {
                 // console.log();
                 fetchData().then(text => props.getSearchDataProp(text))

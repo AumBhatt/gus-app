@@ -8,8 +8,9 @@
     /* Magic of Grid */
     grid-template-columns: repeat(auto-fit, minmax(15em, 1fr));
 
+    margin-top: 10px;
     padding: 10px;
   
-    background: blue;
+    /* background: blue; */
   }
   

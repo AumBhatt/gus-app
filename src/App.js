@@ -12,10 +12,9 @@ function App() {
   };
   return (
     <div className="App">
-      <UserDataContextProvider>
-        <Search getSearchDataProp={getSearchData} ></Search>
-        <UserContainer searchData={searchData}></UserContainer>
-      </UserDataContextProvider>
+      <div className='banner'>GUS</div>
+      <Search getSearchDataProp={getSearchData} ></Search>
+      <UserContainer searchData={searchData}></UserContainer>
     </div>
   );
 }
