@@ -5,18 +5,24 @@ const Search = (props) => {
     return (
         <div className="search-wrapper">
             <input type="text" className="search-textbox" placeholder="Search GitHub Users" />
-            <input type="button" className="search-btn" value="Search" onClick={() => props.childToParentProp(searchData)}/>
+            <input type="button" className="search-btn" value="Search" onClick={() => {
+                // console.log();
+                fetchData().then(text => props.getSearchDataProp(text))
+                // props.childToParentProp();
+            }}/>
         </div>
     );
 };
 
-const fetchData = () => {
+const fetchData = async () => {
     // API Request to local server using fetch API.
 
-    fetch("http://localhost:3030/api/test", {
+    let responseData = await fetch("http://localhost:3030/api/test", {
         method: 'POST'  
-    }).then((res) => res.json())
-    .then(resData => console.log(resData));
+    }).then((res) => {return res.json()})
+    .catch(err => console.error(err));
+    // .then(resData => console.log(resData));
+    return responseData;
 }
 
 export default Search;

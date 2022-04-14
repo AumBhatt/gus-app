@@ -1,0 +1,15 @@
+.user-card-container {
+    width: 90%;
+  
+    display: grid;
+    /* grid-template-rows: repeat(10, 10%); */
+    justify-items: center;
+    /* grid-template-rows: repeat(5, 1fr); */
+    /* Magic of Grid */
+    grid-template-columns: repeat(auto-fit, minmax(15em, 1fr));
+
+    padding: 10px;
+  
+    background: blue;
+  }
+  
