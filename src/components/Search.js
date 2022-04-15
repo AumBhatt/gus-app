@@ -64,7 +64,9 @@ const Search = (props) => {
             <div
                 className="server-error-message"
             >
-                    {(serverConnErr)?"Could not connect to server ☹":(clearSearch.length === 0)?"Start typing to search users...":""}
+                {
+                    (serverConnErr) ? "Could not connect to server ☹" :
+                    (clearSearch.length === 0) ? "Start typing to search users..." : ""}
             </div>
             <img
                 style={(spinner && !serverConnErr)?{display:"block"}:{display:"none"}} 
@@ -78,8 +80,15 @@ const Search = (props) => {
 const fetchData = async (searchData) => {
     // API Request to local server using fetch API.
 
-    let responseData = await fetch(`http://172.16.18.108:3030/api/search/${searchData.toLowerCase()}`, {
-        method: 'POST'  
+    let responseData = await fetch(`http://172.16.18.108:3030/api/search`, {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+            searchType: 'users',
+            searchText: searchData.toLowerCase()
+        })
     }).then((res) => {
         if(res.status === 200)
             return res.json()
