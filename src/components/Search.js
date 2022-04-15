@@ -12,7 +12,7 @@ const Search = (props) => {
     useEffect(() => {
         const debounceTimer = setTimeout(() => {
             if(searchData.length >= 3) {
-                console.log("Fetching Data....");
+                // console.log("Fetching Data....");
                 fetchData(searchData).then(data => {
                     if(data === -1) {
                         setServerConnErr(true);

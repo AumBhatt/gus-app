@@ -6,10 +6,10 @@ import UserContainer from './components/UsersContainer';
 import gusLogo from './images/GUSLogo1.svg'
 
 function App() {
-  console.log(process.env.REACT_APP_REDIS_SERVER_URL)
+  // console.log(process.env.REACT_APP_REDIS_SERVER_URL)
   const [searchData, setSearchData] = useState();
   const getSearchData = (data) => {
-    console.log(data)
+    // console.log(data)
     setSearchData(data);
   };
   return (
@@ -22,6 +22,9 @@ function App() {
       </div>
       <Search getSearchDataProp={getSearchData} ></Search>
       <UserContainer searchData={searchData}></UserContainer>
+      <div className='copyright'>
+        <a href='https://github.com/AumBhatt'>@AumBhatt [2022]</a>
+      </div>
     </div>
   );
 }

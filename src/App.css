@@ -5,6 +5,7 @@
   justify-content: center;
 
   text-align: center;
+  font-family: 'Roboto Mono', sans-serif;
 }
 
 .banner {
@@ -39,4 +40,24 @@
   margin-right: 15px;
   height: 1em;
   aspect-ratio: 1/1;
+}
+
+.copyright {
+  z-index: 999;
+  width: 100%;
+  position: fixed;
+  bottom: 0;
+
+
+  font-size: small;
+  font-family: inherit;
+
+
+  background: rgba(13, 17, 23, 1);
+}
+
+.copyright > a {
+  color: rgba(255, 255, 255, 0.3);
+
+  text-decoration: none;
 }
