@@ -1,9 +1,12 @@
 import React, { useState, useEffect } from "react";
+import gh_octocat from '../images/GitHubOctocat.svg'
 import './Search.css'
 
 const Search = (props) => {
     const [searchData, setSearchData] = useState('');
     const [clearSearch, setClearSearch] = useState('');
+    const [serverConnErr, setServerConnErr] = useState(false);
+    const [spinner, setSpinner] = useState(false);
 
     // useEffect hook for debouncing of search input.
     useEffect(() => {
@@ -11,13 +14,26 @@ const Search = (props) => {
             if(searchData.length >= 3) {
                 console.log("Fetching Data....");
                 fetchData(searchData).then(data => {
-                    props.getSearchDataProp(data);
+                    if(data === -1) {
+                        setServerConnErr(true);
+                    }
+                    else {
+                        props.getSearchDataProp(data);
+                        setSpinner(false)
+                    }
                 });
             }
         }, 1500);
 
         return () => clearTimeout(debounceTimer);
     }, [searchData]);
+
+    useEffect(() => {
+        if(!clearSearch) {
+            props.getSearchDataProp([]);
+            setSpinner(false)
+        }
+    }, [clearSearch])
     return (
         <div className="search-wrapper">
             <input
@@ -27,8 +43,11 @@ const Search = (props) => {
                 value={clearSearch}
                 onChange={(event) => {
                     setClearSearch(event.target.value);
-                    if(event.target.value.length >= 3)
+                    setSpinner(true)
+                    if(event.target.value.length >= 3) {
                         setSearchData(event.target.value);
+                        props.getSearchDataProp([])
+                    }
                     else {
                         setSearchData('');
                         props.getSearchDataProp([]);
@@ -41,6 +60,17 @@ const Search = (props) => {
                     setClearSearch('');
                 }}
             >{(clearSearch)?'close':'search'}</span>
+            
+            <div
+                className="server-error-message"
+            >
+                    {(serverConnErr)?"Could not connect to server ☹":(clearSearch.length === 0)?"Start typing to search users...":""}
+            </div>
+            <img
+                style={(spinner && !serverConnErr)?{display:"block"}:{display:"none"}} 
+                className="loading-spinner"
+                src={gh_octocat}
+            ></img>
         </div>
     );
 };
@@ -54,7 +84,10 @@ const fetchData = async (searchData) => {
         if(res.status === 200)
             return res.json()
     })
-    .catch(err => console.error(err));
+    .catch(err => {
+        console.error(err);
+        return -1;
+    });
     // .then(resData => console.log(resData));
     return responseData;
 }

@@ -3,9 +3,10 @@ import React, { useState } from 'react';
 import { UserDataContext, UserDataContextProvider } from './components/contexts/UserContextData';
 import Search from './components/Search';
 import UserContainer from './components/UsersContainer';
-import gusLogo from './logos/GUSLogo1.svg'
+import gusLogo from './images/GUSLogo1.svg'
 
 function App() {
+  console.log(process.env.REACT_APP_REDIS_SERVER_URL)
   const [searchData, setSearchData] = useState();
   const getSearchData = (data) => {
     console.log(data)

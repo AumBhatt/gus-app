@@ -1,4 +1,7 @@
 .search-wrapper {
+    z-index: 999;
+    top: 20px;
+    position: sticky;
     width: 90%;
     display: flex;
     flex-direction: row;
@@ -7,13 +10,16 @@
 
     margin-top: 10px;
 
+    padding: 5px;
+
     border: 0.25px solid rgba(200,200,200,0.3);
     border-radius: 0.5em;
 
     color: white;
+    font-family: "Roboto Mono", sans-serif;
     /* background: #1b242f; */
 
-    /* background: red; */
+    background: #0D1117;
 }
 
 .search-wrapper:focus-within {
@@ -27,8 +33,7 @@
     border: none;
     /* padding-left: 10px; */
 
-    font-family: 'Roboto Mono', sans-serif;
-
+    font-family: inherit;
     color: inherit;
     background: none;
 }
@@ -38,7 +43,7 @@
 }
 
 .search-textbox::placeholder {
-    color: #cdcdcd;
+    color: #a3a3a3;
 }
 
 .close-icon {
@@ -46,6 +51,42 @@
     margin-right: 10px;
     cursor: pointer;
 
+    user-select: none;
 
     color: #a3a3a3;
+}
+
+.server-error-message {
+    width: 100%;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translateX(-50%);
+
+
+    font-family: inherit;
+    font-size: small;
+    color: #535353;
+
+}
+
+.loading-spinner {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 10%;
+
+    opacity: 0.3;
+
+    animation-name: spinner;
+    animation-duration: 1s;
+    animation-iteration-count: infinite;
+}
+
+@keyframes spinner {
+    100% {
+        transform: translateX(-50%) rotate(360deg);
+    }
 }

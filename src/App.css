@@ -15,9 +15,10 @@
   justify-content: center;
 
   font-family: 'Roboto Mono', sans-serif;
+
   color: white;
 
-  
+  user-select: none;
 
 }
 
@@ -26,6 +27,8 @@
   flex-direction: row;
   align-items: center;
   justify-content: center;
+
+  font-family: 'Space Mono', sans-serif;
 
   font-size: 3em;
 
