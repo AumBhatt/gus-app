@@ -7,7 +7,7 @@ const UserContainer = (props) => {
     useEffect(() => {
         // If data is present, then process it.
         if(props.searchData)
-            processData(props.searchData.items);
+            processData(props.searchData);
     }, [props.searchData]);
 
     const processData = (data) => {
@@ -18,7 +18,7 @@ const UserContainer = (props) => {
                 key: i,
                 userData: data[i]
             }
-            console.log(tempData[i])
+            // console.log(tempData[i])
         }
         setUsers(tempData)
     }

@@ -6,6 +6,8 @@
     align-items: center;
     justify-content: space-evenly;
 
+    animation: cardAnimation 0.25s;
+
     /* box-sizing: border-box; */
 
     padding: 5px;
@@ -33,27 +35,32 @@
     margin-bottom: 5px;
 
 
-    font-size: small;
+    font-size: medium;
 
-    color: #58A6FF;
+    color: white;
+    /* color: #58A6FF; */
     /* background: yellow; */
 }
 
-.show-more-btn {
-    width: 100%;
+.gh-html-url {
+    text-decoration: none;
 
-    margin-top: 5px;
-    margin-bottom: 5px;
-
-    border: none;
-
-    cursor: pointer;
-
-    color: #c5c5c5;
-
-    background: none;
+    color: #58A6FF;
 }
 
 .user-card-wrapper:hover {
     box-shadow: 0px 0px 8px 2px rgba(200,200,200,0.7);
+}
+
+@keyframes cardAnimation {
+    0% {
+        opacity: 0;
+        margin-top: 40px;
+    }
+    50% {
+        opacity: 1;
+    }
+    100% {
+
+    }
 }
