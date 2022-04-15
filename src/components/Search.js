@@ -80,7 +80,7 @@ const Search = (props) => {
 const fetchData = async (searchData) => {
     // API Request to local server using fetch API.
 
-    let responseData = await fetch(`http://172.16.18.108:3030/api/search`, {
+    let responseData = await fetch(`${process.env.REACT_APP_REDIS_SERVER_URL}api/search`, {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'
