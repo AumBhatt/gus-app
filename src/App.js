@@ -3,7 +3,7 @@ import React, { useState } from 'react';
 import { UserDataContext, UserDataContextProvider } from './components/contexts/UserContextData';
 import Search from './components/Search';
 import UserContainer from './components/UsersContainer';
-import gusbanner from './logos/GUSLogo2.png'
+import gusLogo from './logos/GUSLogo1.svg'
 
 function App() {
   const [searchData, setSearchData] = useState();
@@ -14,7 +14,10 @@ function App() {
   return (
     <div className="App">
       <div className='banner'>
-        <img src={gusbanner}></img>
+        <div className='banner-logo'>
+          <img className='banner-image' src={gusLogo}></img> GUS
+        </div>
+        GitHub-User-Search
       </div>
       <Search getSearchDataProp={getSearchData} ></Search>
       <UserContainer searchData={searchData}></UserContainer>

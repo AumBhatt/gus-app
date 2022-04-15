@@ -14,7 +14,10 @@
 
     margin: 10px;
 
+    border: 0.4px solid rgba(200,200,200,0.25);
     border-radius: 10px;
+
+    font-family: 'Roboto Mono', sans-serif;
 
     background: #161B22;
 }
@@ -34,6 +37,7 @@
     margin-top: 5px;
     margin-bottom: 5px;
 
+    cursor: default;
 
     font-size: medium;
 
@@ -43,9 +47,26 @@
 }
 
 .gh-html-url {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
     text-decoration: none;
 
+    margin-top: 5px;
+
+    font-size: small;
+    
+
     color: #58A6FF;
+}
+
+.link-icon {
+    margin-right: 2px;
+
+    transform: rotate(-45deg);
+
+    color: white;
+    font-size: medium;
 }
 
 .user-card-wrapper:hover {

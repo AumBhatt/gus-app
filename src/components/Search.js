@@ -3,6 +3,7 @@ import './Search.css'
 
 const Search = (props) => {
     const [searchData, setSearchData] = useState('');
+    const [clearSearch, setClearSearch] = useState('');
 
     // useEffect hook for debouncing of search input.
     useEffect(() => {
@@ -23,7 +24,9 @@ const Search = (props) => {
                 type="text"
                 className="search-textbox"
                 placeholder="Search GitHub users..."
+                value={clearSearch}
                 onChange={(event) => {
+                    setClearSearch(event.target.value);
                     if(event.target.value.length >= 3)
                         setSearchData(event.target.value);
                     else {
@@ -32,6 +35,12 @@ const Search = (props) => {
                     }
                 }}
             />
+            <span
+                className="material-icons close-icon"
+                onClick={() => {
+                    setClearSearch('');
+                }}
+            >{(clearSearch)?'close':'search'}</span>
         </div>
     );
 };
@@ -39,7 +48,7 @@ const Search = (props) => {
 const fetchData = async (searchData) => {
     // API Request to local server using fetch API.
 
-    let responseData = await fetch(`http://localhost:3030/api/search/${searchData}`, {
+    let responseData = await fetch(`http://172.16.18.108:3030/api/search/${searchData.toLowerCase()}`, {
         method: 'POST'  
     }).then((res) => {
         if(res.status === 200)
