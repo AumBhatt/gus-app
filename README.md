@@ -7,4 +7,5 @@ GUS App: https://gus-react-app.herokuapp.com
 
 ## Project Repositories:
 > gus-server: https://github.com/AumBhatt/gus-server <br>
-> gus-app: https://github.com/AumBhatt/gus-app
+> gus-app: https://github.com/AumBhatt/gus-app <br>
+> GUS Home Repo: https://github.com/AumBhatt/GUS-GitHub-User-Search
