@@ -1,4 +1,4 @@
-# <img align="center" src="./GH-React.png" />
+# <img align="center" src="./GH-React4.png" />
 ### GUS - GitHub User Search React App
 A fullstack project for searching users on github. Made using React.js. The frontend is hosted on Heroku Cloud Platform.
 
